@@ -1,3 +1,10 @@
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 # Title
 
 auteurs (prénom nom) par ordre alphabétique.
