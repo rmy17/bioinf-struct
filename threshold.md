@@ -56,7 +56,7 @@ Moments[^TSA1985]: This approach may be regarded as a moment-preserving image tr
 For bilevel threshold, this method consist in select a threshold value such that if all below-threshold gray values in the image are replaced by x and all above-threshold gray values replaced by y, where x<y, then the first three moments of the image are preserved in the resulting bilevel image. Image so obtained may be regarded as an ideal unblurred version of the initial image.
 For multilevel thresholding, the approach is different, because for threshold an image into n pixels classes, we need n-1 threshold values. 
 
-Otsu[^OTS1979]: Otsu method is a nonparametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bi-modal histogram(foreground and background) and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes).
+Otsu: Otsu method is a nonparametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bi-modal histogram(foreground and background) and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes)[^OTS1979].
 
 Percentile[^DOY1962]: The principle of this method is to choose the threshold value such that 50\% of pixels lie in each binary categories.
 
@@ -97,7 +97,7 @@ where c is a constant.
 Otsu : It is a local version of Otsu's global threshold clustering. In the same way, the algorithm searches for the threshold that minimizes the intra-class variance, defined as a weighted sum of variances of the two classes. 
 The local set is a circular ROI and the central pixel is tested against the Otsu threshold found for that region.
 
-Niblack[^NIB1986],[^SEZ2004]: This algorithm resume the local mean threshold and adds the standard deviation and two parameters. The first is the constant which multiply the standard deviation value. The default value is 0.2 for bright objects and -0.2 for dark objects. Another number than 0 will change the default value. The second is the constant which subtracted the standard deviation value. This is an offset with a default value of 0. Another number than 0 will change this value.
+Niblack[^NIB1986],[^SEZ2004]: This algorithm resume the local mean threshold and adds the standard deviation and two parameters. The first is the constant which multiply the standard deviation value. The default value is 0.2 for bright objects and -0.2 for dark objects. Any other number than 0 will change the default value. The second is the constant which subtracted the standard deviation value. This is an offset with a default value of 0. Any other number than 0 will change this value.
 
 `pixel = ( pixel >  mean + k * standard deviation - c) ? object : background`
 
@@ -136,13 +136,13 @@ Ideally, a machine learning tool could potentially improve the automation of thr
 [^LI1998]:Li CH, Tam PKS. An Iterative Algorithm for Minimum Cross Entropy Thresholding. Pattern Recognition Letters. 1998 Mar;18(8):771-776.
 [^SEZ2004]:Sezgin M, Sankur B. Survey over Image Thresholding Techniques and Quantitative Performance Evaluation. Journal of Electronic Imaging. 2004 Jan ;13(1):146-165.
 [^KAP1985]:Kapur JN, Sahoo PK, Wong ACK.A New Method for Gray-Level Picture Thresholding Using the Entropy of the Histogram.Graphical Models and Image Processing. 1985 Mar;29(3):273-285.
-[^GLA1993]:Glasbey CA.An analysis of histogram-based thresholding algorithms.CVGIP: Graphical Models and Image Processing. 1993 Nov;55:532-537.
+[^GLA1993]:Glasbey CA.An analysis of histogram-based thresholding algorithms. CVGIP: Graphical Models and Image Processing. 1993 Nov;55:532-537.
 [^KIT1986]:Kittler J, Illingworth J.Minimum error thresholding. Pattern Recognition. 1986 Jul;19:41-47.
 [^TSA1985]:Tsai W.Moment-preserving thresholding: a new approach. Computer Vision, Graphics, and Image Processing. 1985 Aug ;29:377-393.
 [^OTS1979]:Otsu N.A threshold selection method from gray-level histograms. IEEE Transactions on systems, man and cybernetics. 1979 Jan;9:62-66.
 [^DOY1962]:Doyle W.Operation useful for similarity-invariant pattern recognition. Journal of the Association for Computing Machinery. 1962 Apr;9:259-267.
 [^SHA1994]:Shanbhag AG.Utilization of information measure as a means of image thresholding. CVGIP: Graphical Models and Image Processing. 1994 Sep ;56(5):414-419.
-[^ZAC1977]:Zack GW, Rogers WE, Latt SA. Automatic measurement of sister chromatid exchange frequency. Journal of Histochemistry \& Cytochemistry. 1977 Jul;25(7):741–53.
+[^ZAC1977]:Zack GW, Rogers WE, Latt SA. Automatic measurement of sister chromatid exchange frequency. Journal of Histochemistry & Cytochemistry. 1977 Jul;25(7):741–53.
 [^YEN1995]:Yen JC, Chang FJ, Chang S.A New Criterion for Automatic Multilevel Thresholding. IEEE Transactions on Image Processing. 1995 Mar;4(3):370-378.
 [^NIB1986]:Niblack W. An introduction to Digital Image Processing. New Jersey: Prentice-Hall; 1986.
 [^SAU2000]:Sauvola J , Pietaksinen M. Adaptive Document Image Binarization. Pattern Recognition. 2000 Fev;33(2):225-236.
