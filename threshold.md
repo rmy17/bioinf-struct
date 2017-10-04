@@ -122,7 +122,10 @@ blabla
 blabla
 
 <img src ="images/chart(2).png" alt = "Résultat du bencmark des differentes methodes de threshold sur trois images">
-
+ <figure>
+        <img src="images/chart(2).png"/>
+        <figcaption>Résultat du bencmark des differentes methodes de threshold sur trois images</figcaption>
+    </figure>
 
 
 ## Discussion
