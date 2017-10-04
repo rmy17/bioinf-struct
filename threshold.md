@@ -118,6 +118,8 @@ The benchmark in computing is an act of running a computer program, in order to 
 
 ## Results
 
+![Differente méthodes de threshold lors du benchmark](master/bioinf-struct/images/MontageLena.tif)
+
 ## Discussion
 
 ### improvements
