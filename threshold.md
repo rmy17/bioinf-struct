@@ -121,7 +121,6 @@ The benchmark in computing is an act of running a computer program, in order to 
 blabla
 blabla
 
-<img src ="images/chart(2).png" alt = "Résultat du bencmark des differentes methodes de threshold sur trois images">
  <figure>
         <img src="images/chart(2).png"/>
         <figcaption>Résultat du bencmark des differentes methodes de threshold sur trois images</figcaption>
