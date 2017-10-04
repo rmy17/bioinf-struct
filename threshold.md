@@ -122,6 +122,7 @@ blabla
 blabla
 
 <img src ="images/chart(2).png">
+<img src ="images/MontageLena.tif">
 
 
 ## Discussion
