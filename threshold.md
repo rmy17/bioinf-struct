@@ -121,7 +121,7 @@ The benchmark in computing is an act of running a computer program, in order to 
 blabla
 blabla
 
-![image](origin/master/bioinf-struct/images/chart.png)
+![image](bioinf-struct/images/chart.png)
 
 
 ## Discussion
