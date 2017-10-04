@@ -121,7 +121,7 @@ The benchmark in computing is an act of running a computer program, in order to 
 blabla
 blabla
 
-<img src ="images/chart.png">
+<img src ="images/chart(2).png">
 
 
 ## Discussion
