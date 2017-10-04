@@ -121,7 +121,10 @@ The benchmark in computing is an act of running a computer program, in order to 
 blabla
 blabla
 
-![image1][Résultats du benchmark des differentes methodes de threshold sur trois images](images/chart(2).png)
+<figure>
+    <img src="images/chart(2).png" alt="Image" />
+    <center><figcaption>Résultats du benchmark des différentes méthodes de threshold effectués sur trois image de taille différentes</figcaption></center>
+</figure>
 
 
 ## Discussion
