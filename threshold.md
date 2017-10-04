@@ -120,6 +120,7 @@ The benchmark in computing is an act of running a computer program, in order to 
 
 <img src = "images/MontageLena.tif" title = "Résultats des differentes méthodes lors du benchmark">
 ![Google logo](https://www.google.fr/images/srpr/logo11w.png "google logo")
+
 ## Discussion
 
 ### improvements
