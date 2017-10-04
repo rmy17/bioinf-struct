@@ -118,7 +118,12 @@ The benchmark in computing is an act of running a computer program, in order to 
 
 ## Results
 
+<<<<<<< HEAD
 ![Resultats du benchmark sur Lena](/home/rmy17/bioinfo/bioinf_struct/bioinf-struct/images "Résultats du benchmark des méthodes de threshold sur Lena")
+=======
+<img src = "images/MontageLena.tif" title = "Résultats des differentes méthodes lors du benchmark">
+![Google logo](https://www.google.fr/images/srpr/logo11w.png "google logo")
+>>>>>>> fb0fa6e9b4ddc54caae7d832f0cdec1afe156d7e
 
 ## Discussion
 
