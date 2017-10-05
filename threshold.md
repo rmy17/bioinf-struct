@@ -3,7 +3,6 @@
 
 Julien Benetti*, Alexis Hubert et Rémy Viannais
 
-> Mettre une étoile à celui/celle qui représente le groupe (ce n'est pas forcément le recruteur).
 
 ## Introduction
 
@@ -25,7 +24,7 @@ Amongst the auto-thresholding methods described further only the ones processing
 
 ## Material and Methods
 
-### imageJ
+### ImageJ
 
 ImageJ is a Java-based image processing program developed at the National Institutes of Health. ImageJ was designed with an open architecture that provides extensibility via Java plugins and recordable macros. User-written plugins make it possible to solve many image processing and analysis problems. ImageJ's plugin architecture and built-in development environment has made it a popular platform for teaching image processing.
 
@@ -51,23 +50,23 @@ Mean [^GLA1993] : The threshold is set such that it is the integer part of the m
 
 MinError [^KIT1986] : A computationally efficient solution to the problem of minimum error thresholding is derived under the assumption of object and pixel gray level values being normally distributed. The principal idea behind the method is to optimise the average pixel classification error rate directly, using either an exhaustive search or an iterative algorithm. It removes the equal variance assumption and addresses a minimum error Gaussian density-fitting problem.
 
-Minimum [^PRE1966] : Like the Intermodes method, this assumes a bimodal histogram. The histogram is iteratively smoothed using the three-point filter, until the histogram has only two local maxima. The threshold t is such that yt-1 > yt <= yt+1. This method is unsuitable for images taht have a histogram with extremely unequal peaks or a broad and flat valley.
+Minimum[^PRE1966] : Like the Intermodes method, this assumes a bimodal histogram. The histogram is iteratively smoothed using the three-point filter, until the histogram has only two local maxima. The threshold t is such that yt-1 > yt <= yt+1. This method is unsuitable for images taht have a histogram with extremely unequal peaks or a broad and flat valley.
 
-Moments [^TSA1985] : This approach may be regarded as a moment-preserving image transformation which recovers an ideal image from a blurred version. The approach select multiple thresholds without iteration or search. The moments method can be use for bilevel and multilevel thresholding. 
+Moments[^TSA1985] : This approach may be regarded as a moment-preserving image transformation which recovers an ideal image from a blurred version. The approach select multiple thresholds without iteration or search. The moments method can be use for bilevel and multilevel thresholding. 
 For bilevel threshold, this method consist in select a threshold value such that if all below-threshold gray values in the image are replaced by x and all above-threshold gray values replaced by y, where x<y, then the first three moments of the image are preserved in the resulting bilevel image. Image so obtained may be regarded as an ideal unblurred version of the initial image.
 For multilevel thresholding, the approach is different, because for threshold an image into n pixels classes, we need n-1 threshold values. 
 
-Otsu [^OTS1979] : Otsu method is a nonparametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bi-modal histogram(foreground and background) and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes).
+Otsu[^OTS1979] : Otsu method is a nonparametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bi-modal histogram(foreground and background) and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes).
 
-Percentile [^DOY1962] : The principle of this method is to choose the threshold value such that 50\% of pixels lie in each binary categories.
+Percentile[^DOY1962] : The principle of this method is to choose the threshold value such that 50\% of pixels lie in each binary categories.
 
-RenyiEntropy [^KAP1985] : It is the same method as MaxEntropy but instead of using Shannon's function to calculate the entropy, it uses Rényi entropy that generalizes the Hartley entropy, the Shannon entropy, the collision entropy and the min entropy.
+RenyiEntropy[^KAP1985] : It is the same method as MaxEntropy but instead of using Shannon's function to calculate the entropy, it uses Rényi entropy that generalizes the Hartley entropy, the Shannon entropy, the collision entropy and the min entropy.
 
-Shangbang [^SHA1994] : This algorithm is  based entropic thresholding method. This one this consists of viewing the image as a compositum of two fuzzy sets corresponding to the two classes with membership coefficient associated with each gray level a function of its frequency of occurrence as well as its distance from the intermediate threshold selected. For this a set of axioms is defined. For the first, all the pixels with minimum gray level in the image is zero. In fact, the father away a gray value is from a presumed threshold, the greater becomes its potential to belong to a specific class. For the second a hypothetical gray level T' is assumed between the selected threshold gray level T and T + 1 so that a "pixel with this gray level" has membership coefficient of 0.5 of belonging to either class. For the third gray level assigned to a class should imply that the membership coefficient of g belonging to that class 0.5. Moreover we will also demand that if gray level g1, where g1 and g2 lie on the same side of the threshold T, the membership coefficient of g2, belonging to the corresponding class is greater than that of g1, and information conveyed is greater in classifying g1 than classifying g2. For the last, the membership coefficient of gray level w.r.t a class depends on and increases with the frequency of occurrence of the pixels with gray level. From this four axiom is determined the ideal threshold.
+Shangbang[^SHA1994] : This algorithm is  based entropic thresholding method. This one this consists of viewing the image as a compositum of two fuzzy sets corresponding to the two classes with membership coefficient associated with each gray level a function of its frequency of occurrence as well as its distance from the intermediate threshold selected. For this a set of axioms is defined. For the first, all the pixels with minimum gray level in the image is zero. In fact, the father away a gray value is from a presumed threshold, the greater becomes its potential to belong to a specific class. For the second a hypothetical gray level T' is assumed between the selected threshold gray level T and T + 1 so that a "pixel with this gray level" has membership coefficient of 0.5 of belonging to either class. For the third gray level assigned to a class should imply that the membership coefficient of g belonging to that class 0.5. Moreover we will also demand that if gray level g1, where g1 and g2 lie on the same side of the threshold T, the membership coefficient of g2, belonging to the corresponding class is greater than that of g1, and information conveyed is greater in classifying g1 than classifying g2. For the last, the membership coefficient of gray level w.r.t a class depends on and increases with the frequency of occurrence of the pixels with gray level. From this four axiom is determined the ideal threshold.
 
-Triangle [^ZAC1977] : The histogram is enclosed in a right triangle between the maximum peak and the end of the histogram bins. The objective is to find the histogram bin with the greatest distance between its top and the hypotenuse of the triangle, in a line perpendicular to the hypotenuse.
+Triangle[^ZAC1977] : The histogram is enclosed in a right triangle between the maximum peak and the end of the histogram bins. The objective is to find the histogram bin with the greatest distance between its top and the hypotenuse of the triangle, in a line perpendicular to the hypotenuse.
 
-Yen [^YEN1995], [^SEZ2004] : This algorithm is based on an entropic thresholding method. However, a new criterion for a multi-level thresholding is proposed. It is based on the consideration of two factors. The discrepancy between the thresholded and the original images and the number of bits required to represent the thresholded image. Based on a new maximum correlation criterion for bilevel thresholding, the discrepancy is defined and then a cost function that takes both factors into account is proposed for multilevel thresholding. By minimizing the cost function, the classification number that the gray-levels should be classified and the threshold values can be determined automatically.In addition, the cost function is proven to possess a unique minimum under very mild conditions. 
+Yen[^YEN1995],[^SEZ2004] : This algorithm is based on an entropic thresholding method. However, a new criterion for a multi-level thresholding is proposed. It is based on the consideration of two factors. The discrepancy between the thresholded and the original images and the number of bits required to represent the thresholded image. Based on a new maximum correlation criterion for bilevel thresholding, the discrepancy is defined and then a cost function that takes both factors into account is proposed for multilevel thresholding. By minimizing the cost function, the classification number that the gray-levels should be classified and the threshold values can be determined automatically.In addition, the cost function is proven to possess a unique minimum under very mild conditions. 
 
 ### Local auto-thresholding
 
@@ -145,7 +144,7 @@ Ideally, a machine learning tool could potentially improve the automation of thr
 [^YEN1995]: Yen JC, Chang FJ, Chang S.A New Criterion for Automatic Multilevel Thresholding. IEEE Transactions on Image Processing. 1995 Mar;4(3):370-378.
 [^NIB1986]: Niblack W. An introduction to Digital Image Processing. New Jersey: Prentice-Hall; 1986.
 [^SAU2000]: Sauvola J , Pietaksinen M. Adaptive Document Image Binarization. Pattern Recognition. 2000 Fev;33(2):225-236.
-[^PHA2011]: 
+[^PHA2011]: Phansalskar N, More S ,Sabale A. Adaptive local thresholding for detection of nuclei in diversity stained cytology images. International Conference on Communications and Signal Processing. 2011 Mar;218-220.
 
 
 
