@@ -38,9 +38,9 @@ Global gray-scale bilevel Auto-Thresholding :
 
 Huang[^LEU2002]: Thresholding method based on minimizing the measures of fuzziness of an input image and the membership of each pixel. The index of fuzziness correspond to the entropy and can be calculated using Shannon's function or Yager's measure. The membership of a pixel is defined by the absolute difference between its gray level and the average gray level of its surrounding. The threshold value is then iteratively changed from a minimum to a maximum and the optimal threshold is then selected according to the previous data. 
 
-Intermodes[^PRE1966]: The intermodes method assumes a bimodal histogram. The histogram is iteratively smoothed using a running average of size 3, until there are only two local maxima: j and k. The threshold t is then computed as (j+k)/2. This metho is unquitable for images that have a histogram with extremely unequal peaks.
+Intermodes[^PRE1966]: The intermodes method assumes a bimodal histogram. The histogram is iteratively smoothed using a running average of size 3, until there are only two local maxima: j and k. The threshold t is then computed as (j+k)/2. This method is unsuitable for images that have a histogram with extremely unequal peaks.
 
-Isodata[^RID1978]: Based on the isodata algorithm of Ridler. After an initial threshold, isodata method divides the image into background and object. Then the average of pixel values below the threshold and above are computed, the average of those two are computed. 0The threshold is then incremented and the process is repeated until the threshold is larger than the composite average.
+Isodata[^RID1978]: Based on the isodata algorithm of Ridler. After an initial threshold, isodata method divides the image into background and object. Then the average of pixel values below the threshold and above are computed, the average of those two are computed. The threshold is then incremented and the process is repeated until the threshold is larger than the composite average.
 
 Li [^LI1993],[^LI1998],[^SEZ2004]: This method is called the minimum cross entropy method, it selects the threshold which minimizes the cross entropy of the image and its segmented version.
 
@@ -52,39 +52,24 @@ MinError[^KIT1986]: A computationally efficient solution to the problem of minim
 
 Minimum[^PRE1966] : Like the Intermodes method, this assumes a bimodal histogram. The histogram is iteratively smoothed using the three-point filter, until the histogram has only two local maxima. The threshold t is such that yt-1 > yt <= yt+1. This method is unsuitable for images taht have a histogram with extremely unequal peaks or a broad and flat valley.
 
-Moments[^TSA1985] : This approach may be regarded as a moment-preserving image transformation which recovers an ideal image from a blurred version. The approach select multiple thresholds without iteration or search. The moments method can be use for bilevel and multilevel thresholding. 
-For bilevel threshold, this method consist in select a threshold value such that if all below-threshold gray values in the image are replaced by x and all above-threshold gray values replaced by y, where x<y, then the first three moments of the image are preserved in the resulting bilevel image. Image so obtained may be regarded as an ideal unblurred version of the initial image.
-For multilevel thresholding, the approach is different, because for threshold an image into n pixels classes, we need n-1 threshold values. 
+Moments[^TSA1985] : This approach may be regarded as a moment-preserving image transformation which recovers an ideal image from a blurred version. The approach select multiple thresholds without iteration or search. The moments method can be use for bilevel and multilevel thresholding but we are going to work only on the bilevel. 
+For bilevel threshold, this method consist in select a threshold value such that if all below-threshold gray values in the image are replaced by x and all above-threshold gray values replaced by y, where x<y, then the first three moments of the image are preserved in the resulting bilevel image. Image so obtained may be regarded as an ideal unblurred version of the initial image. 
 
 Otsu[^OTS1979] : Otsu method is a nonparametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bi-modal histogram(foreground and background) and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes).
 
-Percentile[^DOY1962] : The principle of this method is to choose the threshold value such that 50\% of pixels lie in each binary categories.
+Percentile[^DOY1962] : The principle of this method is to choose the threshold value such that 50\% of pixels lie in each binary categories. Obviously the results are suboptimal.
 
 RenyiEntropy[^KAP1985] : It is the same method as MaxEntropy but instead of using Shannon's function to calculate the entropy, it uses Rényi entropy that generalizes the Hartley entropy, the Shannon entropy, the collision entropy and the min entropy.
 
-Shangbang[^SHA1994] : This algorithm is  based entropic thresholding method. This one this consists of viewing the image as a compositum of two fuzzy sets corresponding to the two classes with membership coefficient associated with each gray level a function of its frequency of occurrence as well as its distance from the intermediate threshold selected. For this a set of axioms is defined. For the first, all the pixels with minimum gray level in the image is zero. In fact, the father away a gray value is from a presumed threshold, the greater becomes its potential to belong to a specific class. For the second a hypothetical gray level T' is assumed between the selected threshold gray level T and T + 1 so that a "pixel with this gray level" has membership coefficient of 0.5 of belonging to either class. For the third gray level assigned to a class should imply that the membership coefficient of g belonging to that class 0.5. Moreover we will also demand that if gray level g1, where g1 and g2 lie on the same side of the threshold T, the membership coefficient of g2, belonging to the corresponding class is greater than that of g1, and information conveyed is greater in classifying g1 than classifying g2. For the last, the membership coefficient of gray level w.r.t a class depends on and increases with the frequency of occurrence of the pixels with gray level. From this four axiom is determined the ideal threshold.
+Shangbhag[^SHA1994] : This algorithm is entropic based. It views the image as a compositum of two fuzzy sets corresponding to the two classes with membership coefficient associated with each gray level a function of its frequency of occurrence as well as its distance from the intermediate threshold selected. 
+
+	threshold = abs(entropyBackground - entropyObject)
 
 Triangle[^ZAC1977] : The histogram is enclosed in a right triangle between the maximum peak and the end of the histogram bins. The objective is to find the histogram bin with the greatest distance between its top and the hypotenuse of the triangle, in a line perpendicular to the hypotenuse.
 
-Yen[^YEN1995],[^SEZ2004] : This algorithm is based on an entropic thresholding method. However, a new criterion for a multi-level thresholding is proposed. It is based on the consideration of two factors. The discrepancy between the thresholded and the original images and the number of bits required to represent the thresholded image. Based on a new maximum correlation criterion for bilevel thresholding, the discrepancy is defined and then a cost function that takes both factors into account is proposed for multilevel thresholding. By minimizing the cost function, the classification number that the gray-levels should be classified and the threshold values can be determined automatically.In addition, the cost function is proven to possess a unique minimum under very mild conditions. 
+Yen[^YEN1995],[^SEZ2004] : A new criterion for multilevel thresholding is proposed. The criterion is based on the consideration of two factors. The first one is the discrepancy between the thresholded and original images and the second one is the number of bits required to represent the thresholded image. Based on a new maximum correlation criterion for bilevel thresholding, the discrepancy is defined and then a cost function that takes both factors into account is proposed for multilevel thresholding. By minimizing the cost function, the classification number that the gray-levels should be classified and the threshold values can be determined automatically.
 
-Minimum[^PRE1966]: Like the Intermodes method, this assumes a bimodal histogram. The histogram is iteratively smoothed using the three-point filter, until the histogram has only two local maxima. The threshold t is such that yt-1 > yt <= yt+1. This method is unsuitable for images taht have a histogram with extremely unequal peaks or a broad and flat valley.
 
-Moments[^TSA1985]: This approach may be regarded as a moment-preserving image transformation which recovers an ideal image from a blurred version. The approach select multiple thresholds without iteration or search. The moments method can be use for bilevel and multilevel thresholding. 
-For bilevel threshold, this method consist in select a threshold value such that if all below-threshold gray values in the image are replaced by x and all above-threshold gray values replaced by y, where x<y, then the first three moments of the image are preserved in the resulting bilevel image. Image so obtained may be regarded as an ideal unblurred version of the initial image.
-For multilevel thresholding, the approach is different, because for threshold an image into n pixels classes, we need n-1 threshold values. 
-
-Otsu[^OTS1979]: Otsu method is a nonparametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bi-modal histogram(foreground and background) and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes).
-
-Percentile[^DOY1962]: The principle of this method is to choose the threshold value such that 50\% of pixels lie in each binary categories.
-
-RenyiEntropy[^KAP1985]: It is the same method as MaxEntropy but instead of using Shannon's function to calculate the entropy, it uses Rényi entropy that generalizes the Hartley entropy, the Shannon entropy, the collision entropy and the min entropy.
-
-Shangbang[^SHA1994]: This algorithm is  based entropic thresholding method. This one this consists of viewing the image as a compositum of two fuzzy sets corresponding to the two classes with membership coefficient associated with each gray level a function of its frequency of occurrence as well as its distance from the intermediate threshold selected. For this a set of axioms is defined. For the first, all the pixels with minimum gray level in the image is zero. In fact, the father away a gray value is from a presumed threshold, the greater becomes its potential to belong to a specific class. For the second a hypothetical gray level T' is assumed between the selected threshold gray level T and T + 1 so that a "pixel with this gray level" has membership coefficient of 0.5 of belonging to either class. For the third gray level assigned to a class should imply that the membership coefficient of g belonging to that class 0.5. Moreover we will also demand that if gray level g1, where g1 and g2 lie on the same side of the threshold T, the membership coefficient of g2, belonging to the corresponding class is greater than that of g1, and information conveyed is greater in classifying g1 than classifying g2. For the last, the membership coefficient of gray level w.r.t a class depends on and increases with the frequency of occurrence of the pixels with gray level. From this four axiom is determined the ideal threshold.
-
-Triangle[^zac]:The histogram is enclosed in a right triangle between the maximum peak and the end of the histogram bins. The objective is to find the histogram bin with the greatest distance between its top and the hypotenuse of the triangle, in a line perpendicular to the hypotenuse.
-
-Yen[^YEN1995][^SEZ2004]: This algorithm is based on an entropic thresholding method. However, a new criterion for a multi-level thresholding is proposed. It is based on the consideration of two factors. The discrepancy between the thresholded and the original images and the number of bits required to represent the thresholded image. Based on a new maximum correlation criterion for bilevel thresholding, the discrepancy is defined and then a cost function that takes both factors into account is proposed for multilevel thresholding. By minimizing the cost function, the classification number that the gray-levels should be classified and the threshold values can be determined automatically.In addition, the cost function is proven to possess a unique minimum under very mild conditions. 
 
 
 ### Local auto-thresholding
@@ -103,7 +88,7 @@ Contrast method : It is based on a simple contrast toggle. This procedure does n
 
 `pixel = ( pixel > ((min+max)/2) ? object : background`
 
-Mean, Median, MidGrey : To find the local threshold the intensity values of the local neighborhood of each can be statistically examined. The statistics which is more appropriate, depends largely on the input image. So the choice must be between these three values in function of the input image. The size of the neighborhood has to be large enough to cover sufficient foreground and background pixels, otherwise the chosen threshold is not good. However, choosing a large regions can violate the the assumption of approximately uniform illumination.
+Mean, Median, MidGrey : To find the local threshold the intensity values of the local neighborhood of each pixel can be statistically examined. The statistics which is more appropriate, depends largely on the input image. So a choice can be made between the mean, the median and the "midgrey" (average of the maximum grey intensity and the minimum grey intensity) in function of the input image. The size of the neighborhood has to be large enough to cover sufficient foreground and background pixels, otherwise the chosen threshold is not good enough. However, choosing a large region can violate the the assumption of approximately uniform illumination.
 
 `pixel = ( pixel > mean - c ) ? object : background`
 
@@ -114,13 +99,13 @@ Mean, Median, MidGrey : To find the local threshold the intensity values of the 
 where c is a constant.
 
 Otsu : It is a local version of Otsu's global threshold clustering. In the same way, the algorithm searches for the threshold that minimizes the intra-class variance, defined as a weighted sum of variances of the two classes. 
-The local set is a circular ROI and the central pixel is tested against the Otsu threshold found for that region.
+The local set is a circular ROI and the central pixel is tested against the Otsu threshold found for that region. 
 
-Niblack[^NIB1986],[^SEZ2004]: This algorithm resume the local mean threshold and adds the standard deviation and two parameters. The first is the constant which multiply the standard deviation value. The default value is 0.2 for bright objects and -0.2 for dark objects. Any other number than 0 will change the default value. The second is the constant which subtracted the standard deviation value. This is an offset with a default value of 0. Any other number than 0 will change this value.
+Niblack[^NIB1986],[^SEZ2004]: It is an improved local mean threshold that adds the standard deviation and two constants. The first one mutiplies the standard deviation value -- the default value is 0.2 for bright objects and -0.2 for dark objects. The second substracts the standard deviation value. 
 
 `pixel = ( pixel >  mean + k * standard deviation - c) ? object : background`
 
-Sauvola[^SAU2000]: It is an improvement on the Niblack method, especially for stained and badly illuminated documents. It adapts the contribution of the standard deviation.
+Sauvola[^SAU2000]: It is an improvement on the Niblack method, especially for stained and badly illuminated documents. It adapts the contribution of the standard deviation in an adaptive manner.
 
 `pixel = ( pixel > mean * ( 1 + k * ( standard deviation / r - 1 ) ) ) ? object : background`
 
@@ -133,12 +118,32 @@ Phansalkar recommends k = 0.25, r = 0.5, p = 2 and q = 10.
 
 ### Benchmark
 
-The benchmark in computing is an act of running a computer program, in order to assess the relative performance of this it, normally by running a number of standard tests. It is usually associated with assessing performance characteristics of computer performance.
+The benchmark in computing is an act of running a computer program, in order to assess the relative performance of it, normally by running a number of standard tests. It is usually associated with assessing performance characteristics of computer performance.
+Only the time were benchmarked here, since the impacts on the memory and the CPU were fluky and insignificant compared to the loading of the image. 
 
 ## Results
 
-blabla
-blabla
+We used a set of three different images to test all the methods of automatic thresholding. A stump seen from above, a cross section of a microscopic image and a portrait - Lena. All of them were time-benchmarked with all of the methods 10.000 times. Since there is a large gap between the fastest methods and the longest methods, the measurements have been logarithmized.
+
+
+<figure>
+    <img src="images/coupe_tronc.png" alt="Image" />
+    <center><figcaption>Figure 1 : Results of all thresholding methods.
+	From the up-left corner to the down-right corner : </figcaption></center>
+</figure>
+
+<figure>
+    <img src="images/coupe_longitudinale.png" alt="Image" />
+    <center><figcaption>Résultats du benchmark des différentes méthodes de threshold effectués sur trois image de taille différentes</figcaption></center>
+</figure>
+
+<figure>
+    <img src="images/lena.png" alt="Image" />
+    <center><figcaption>Résultats du benchmark des différentes méthodes de threshold effectués sur trois image de taille différentes</figcaption></center>
+</figure>
+
+
+
 
 <figure>
     <img src="images/chart(2).png" alt="Image" />
@@ -148,12 +153,16 @@ blabla
 
 ## Discussion
 
+The results of the benchmark show that the different threshold methods have important differences in execution time. That's differences are correlated with the complexity of these.  However, this simple criterion of speed is not sufficient to be able to classify these methods performances. Indeed, even if a "good" threshold is quite subjective, some of the results are obviously bad. We can add that time performances are not necessarily negatively correlated with good threshold performances. Threshold quality will greatly depends on the image type, some methods will perform better than others on certain images and vice-versa - as seen on the images in the results section. 
+
 ### Improvements
 
 Ideally, a machine learning tool could potentially improve the automation of thresholding. It would be fed with thousands of thresholded images either by hand or by a human decision involving one of the methods described above so it could learn a seemingly "ground-truth" quite relevant and then it will potentially be able to choose the best way to threshold any image given. 
 
 
 ## Conclusion
+
+There are many methods of automatic thresholding based on different basic principles (entropy, histogram, clustering). It is difficult to know which one is the most efficient. There are also local threshold methods that are more complex and quite harder to implement. Thresholds for color images also exist using the global method thresholding on the various color channels. There are even hybrid methods mixing the global threshold and local threshold.
 
 ## References
 
