@@ -63,7 +63,7 @@ RenyiEntropy[^KAP1985] : It is the same method as MaxEntropy but instead of usin
 
 Shangbhag[^SHA1994] : This algorithm is entropic based. It views the image as a compositum of two fuzzy sets corresponding to the two classes with membership coefficient associated with each gray level a function of its frequency of occurrence as well as its distance from the intermediate threshold selected. 
 
-	threshold = abs(entropyBackground - entropyObject)
+`threshold = abs(entropyBackground - entropyObject)`
 
 Triangle[^ZAC1977] : The histogram is enclosed in a right triangle between the maximum peak and the end of the histogram bins. The objective is to find the histogram bin with the greatest distance between its top and the hypotenuse of the triangle, in a line perpendicular to the hypotenuse.
 
@@ -128,18 +128,20 @@ We used a set of three different images to test all the methods of automatic thr
 
 <figure>
     <img src="images/coupe_tronc.png" alt="Image" />
-    <center><figcaption>Figure 1 : Results of all thresholding methods.
-	From the up-left corner to the down-right corner : </figcaption></center>
+    <center><figcaption>Figure 1 : Results of all thresholding methods on the stump image.
+	From the up-left corner to the down-right corner : Default, Huang, Intermodes, IsoData, Li, MaxEntropy, Mean, MinError(I), Minimum, Moments, Otsu, Percentile, RenyiEntropy, Shanbhag, Triangle, Yen. </figcaption></center>
 </figure>
+
+
 
 <figure>
     <img src="images/coupe_longitudinale.png" alt="Image" />
-    <center><figcaption>Résultats du benchmark des différentes méthodes de threshold effectués sur trois image de taille différentes</figcaption></center>
+    <center><figcaption>Figure 2 : Results of all thresholding methods on the cross section of a cell.</figcaption></center>
 </figure>
 
 <figure>
     <img src="images/lena.png" alt="Image" />
-    <center><figcaption>Résultats du benchmark des différentes méthodes de threshold effectués sur trois image de taille différentes</figcaption></center>
+    <center><figcaption>Figure 3 : Results of all thresholding methods on the portrait of Lena.</figcaption></center>
 </figure>
 
 
@@ -147,7 +149,7 @@ We used a set of three different images to test all the methods of automatic thr
 
 <figure>
     <img src="images/chart(2).png" alt="Image" />
-    <center><figcaption>Résultats du benchmark des différentes méthodes de threshold effectués sur trois image de taille différentes</figcaption></center>
+    <center><figcaption>Figure 4 :  Logarithmized chart results of the benchmark of all thresholding methods on the three different images.</figcaption></center>
 </figure>
 
 
