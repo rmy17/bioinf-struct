@@ -24,7 +24,7 @@ Amongst the auto-thresholding methods described further only the ones processing
 
 ## Material and Methods
 
-### imageJ
+### ImageJ
 
 ImageJ is a Java-based image processing program developed at the National Institutes of Health. ImageJ was designed with an open architecture that provides extensibility via Java plugins and recordable macros. User-written plugins make it possible to solve many image processing and analysis problems. ImageJ's plugin architecture and built-in development environment has made it a popular platform for teaching image processing.
 
@@ -129,7 +129,7 @@ blabla
 
 ## Discussion
 
-### improvements
+### Improvements
 
 Ideally, a machine learning tool could potentially improve the automation of thresholding. It would be fed with thousands of thresholded images either by hand or by a human decision involving one of the methods described above so it could learn a seemingly "ground-truth" quite relevant and then it will potentially be able to choose the best way to threshold any image given. 
 
@@ -163,7 +163,7 @@ Ideally, a machine learning tool could potentially improve the automation of thr
 
 [^SHA1994]: Shanbhag AG.Utilization of information measure as a means of image thresholding. CVGIP: Graphical Models and Image Processing. 1994 Sep ;56(5):414-419.
 
-[^zac]: Zack GW, Rogers WE, Latt SA. Automatic measurement of sister chromatid exchange frequency. Journal of Histochemistry & Cytochemistry. 1977 Jul;25(7):741–53.
+[^ZAC1977]: Zack GW, Rogers WE, Latt SA. Automatic measurement of sister chromatid exchange frequency. Journal of Histochemistry & Cytochemistry. 1977 Jul;25(7):741–53.
 
 [^YEN1995]: Yen JC, Chang FJ, Chang S.A New Criterion for Automatic Multilevel Thresholding. IEEE Transactions on Image Processing. 1995 Mar;4(3):370-378.
 
