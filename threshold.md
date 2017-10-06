@@ -147,6 +147,14 @@ We used a set of three different images to test all the methods of automatic thr
 </figure>
 
 
+Table.1. Results of the benchmark of all thresholding methods on the three different images in microseconds. 
+
+header | Default | Huang | Intermodes | IsoData | Li | MaxEntropy | Mean | MinError(I) | Minimum | Moments | Otsu | Percentile | RenyiEntropy | Shanbhag | Triangle | Yen
+------ | ------- | ----- | ---------- | ------- | -- | ---------- | ---- | ----------- | ------- | ------- | ---- | ---------- | ------------ | -------- | -------- | ---
+Stump | 16.7 | 39.46 | 20.33 | 6.03 | 1.06 | 481.58 | 0.29 | 26.55 | 21.36 | 1.36 | 1.37 | 10.43 | 765.4 | 573.23 | 0.49 | 8.06
+Cross Section | 49.24 |90.96 | 49.45 | 17.23 | 1.49 | 1379.57 | 0.41 | 10.84 | 51.81 | 2.32 | 2.4 | 28.94 | 2131.83 | 1464.14 | 0.81 | 13.11 
+Lena | 26.98 | 61.39 | 109.73 | 9.61 | 1.34 | 906.16 | 0.34 | 53.89 | 114.12 | 1.42 | 1.44 | 18.61 | 1398.1 | 1030.09 | 0.73 | 10.45
+
 
 
 <figure>
