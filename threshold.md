@@ -118,6 +118,7 @@ Phansalkar recommends k = 0.25, r = 0.5, p = 2 and q = 10.
 
 ### Benchmark
 
+
 The benchmark in computing is an act of running a computer program, in order to assess the relative performance of it, normally by running a number of standard tests. It is usually associated with assessing performance characteristics of computer performance.
 Only the time were benchmarked here, since the impacts on the memory and the CPU were fluky and insignificant compared to the loading of the image. 
 
@@ -155,11 +156,11 @@ We used a set of three different images to test all the methods of automatic thr
 
 ## Discussion
 
-The results of the benchmark show that the different threshold methods have important differences in execution time. That's differences are correlated with the complexity of these.  However, this simple criterion of speed is not sufficient to be able to classify these methods performances. Indeed, even if a "good" threshold is quite subjective, some of the results are obviously bad. We can add that time performances are not necessarily negatively correlated with good threshold performances. Threshold quality will greatly depends on the image type, some methods will perform better than others on certain images and vice-versa - as seen on the images in the results section. 
+The results of the benchmark show that the different threshold methods have important differences in execution time. These differences are correlated with the complexity of the methods.  However, this simple criterion of speed is not sufficient to be able to classify these methods performances. Indeed, even if a "good" threshold is quite subjective, some of the results are obviously inadequate. We can add that time performances are not necessarily negatively correlated with good threshold performances. Threshold quality will greatly depends on the image type, some methods will perform better than others on certain images and vice-versa - as seen on the images in the results section. 
 
 ### Improvements
 
-Ideally, a machine learning tool could potentially improve the automation of thresholding. It would be fed with thousands of thresholded images either by hand or by a human decision involving one of the methods described above so it could learn a seemingly "ground-truth" quite relevant and then it will potentially be able to choose the best way to threshold any image given. 
+Ideally, a machine learning tool could potentially improve the automation of thresholding. It would be fed with thousands of thresholded images either by hand or by a human decision involving one of the methods described above so it could learn a seemingly empirical knowledge quite relevant and then it will potentially be able to choose the best way to threshold any image given. 
 
 
 ## Conclusion
