@@ -32,7 +32,7 @@
   * @param {number} width - Width of the input image
   * @param {number} height - Height of the input image
   * @returns {TRaster}  One or more thresholds
-  * @author: Julien Benetti
+  * @author: Rémy Viannais
   */
 
 const AdaptativeThreshold = function (img,w,h,copy=true){
