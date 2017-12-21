@@ -35,9 +35,18 @@ The algorithm which creates a binary image uses the integral image tool to perfo
 <li>Computation of the integral image.</li>
 To compute the integral image, the sum of all f(x,y) terms to the left and above the pixels(x,y) is store at each location ,I(x,y) using the following equation 1 : 
 
+
 ![Equation of integral image](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equation%201.png)
 
+In practice, a pixel of the integral image I(x,y) is calculated from the sum of the pixels of the image above f(x, yi) added to the left pixel of the previously calculated integral image such that I (x-1,y). 
+At the same time the thresholding step at pixel is compute.
 
+<li>Computation kernel coordinates.</li>
+<li>Computation the area of kernel.</li>
+<li>Computation the sum of the pixels visited by the kernel.</li>
+
+the sum of the the pixel visited by the kernel is compute using the following equation :
+![Equation of the sum integral image pixels]()
 ## References
 
 [^BRA2007]: Bradley D, Roth G. Adaptive thresholding using integral image. Journal of Graphics Tools. Volume 12, Issue 2.  pp. 13-21. 2007. NRC 48816.
