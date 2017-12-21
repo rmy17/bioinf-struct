@@ -40,7 +40,6 @@ To compute the integral image, the sum of all f(x,y) terms to the left and above
     <center><figcaption>Figure 1 :  Equation of integral image.</figcaption></center>
 </figure>
 
-
 ## References
 
 [^BRA2007]: Bradley D, Roth G. Adaptive thresholding using integral image. Journal of Graphics Tools. Volume 12, Issue 2.  pp. 13-21. 2007. NRC 48816.
