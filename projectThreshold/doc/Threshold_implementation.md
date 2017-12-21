@@ -33,6 +33,7 @@ Adaptive thresholding is the common solution that takes order to account for var
 The algorithm which creates a binary image uses the integral image tool to perform the calculations. it allow to compute the sum over multiple overlapping rectangular windows and achieve a constant number of operations per rectangle with only a linear amount of preprocessing. The algorithm contains several steps : 
 <ul>
 <li>Computation of the integral image.</li>
+
 To compute the integral image, the sum of all f(x,y) terms to the left and above the pixels(x,y) is store at each location ,I(x,y) using the following equation 1 : 
 
 
@@ -49,6 +50,50 @@ the sum of the the pixel visited by the kernel is compute using the following eq
 
 
 ![Equation of the sum integral image pixels](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equationsum.png)
+
+<li>Determination the pixel value.</li>
+
+
+ To determine the pixel value of the binary image, the product of the pixel value of the input image and the area of kernel is compared to the product of the sum of the pixels of the kernel with value given by the user to modulate this sum value. If the first product is lower than the second or equal the value of the pixel will be 0 and vice versa of 255.
+ 
+ ### Max-entropy
+ 
+ The entropy of grayscale image is statistical measure of randomness that can be used to characterize the texture of the input image. It is used to describe the business of an image, i.e. the amount of information which must be coded for by a compression algorithm. This method use the derivation of the probability distribution of gray-levels to define the entropies and then find the maximum information between the object and the background - the entropy maximum, the threshold value.
+ 
+ Programm summary:
+ 
+ <ul>
+ <li>Determine the normalized histogram, and then calculate the cumulative normalized histogram.</li>
+ <li>Determine the first and the last non-zero bin.</li>
+ <li>Calculate the entropy of the background pixels and the entropy of object pixels.</li>
+ <li>Add these two entropy to get the total entropy for each gray-level and find the threshold that maximizes it.</li>
+ </ul>
+ 
+ ### Otsu
+ 
+ Otsu method is a non-parametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bimodal histogram (foreground pixels and background pixels),and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes). The aim is to find the threshold value where the sum of foreground and background spreads is at its minimum.
+ 
+ Programm summary:
+ 
+ <ul>
+ <li>Compute histogram and probabilities of each intensity level.</li>
+ <li>Set up initial class probability and initial class means.</li>
+ <li>Step through all possible thresholds maximum intensity.</li>
+ <li>Compute between class variance.</li>
+ <li>Desired threshold corresponds to the maximum value of between class variance.</li>
+ </ul>
+ 
+ ## Results
+ 
+ A benchmarking has been used to compare the methods. It uses the performance.now() method returning a DOMHighResTimeStamp, measured in milliseconds, accurate to five thousandths of a millisecond (5 microseconds). 
+The results are in millisecond and represent the mean of 100 iterations of the method after 100 iteration to warming it up. It compares the method according to the size of an image (1 "lena" to 10 "lenas") and to two web browsers : Firefox (Quantum 57.0.2 64bits) and Chrome (63.0.3239.84 64bits).
+
+### k-means
+
+Image 1 The two implemented methods are faster on Firefox than on Chrome. The result are also less fluctuating on Firefox. 
+Image 2 The second method implemented is faster than the first (10 times faster on a 512*512 pixels image to 50 times faster on a image with 10x more pixels). 
+Image 3 The number of loop turn is only correlated to the k-number and not to the image size. 
+Image 4 The loading of the Raster in the method takes around 75% of the time of the method.
 
 ## References
 
