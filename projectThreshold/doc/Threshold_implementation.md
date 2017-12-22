@@ -159,6 +159,14 @@ The second method has be designed to improve the speed of the program. This impl
 
 The adaptive threshold algorithm is a local thresholding method. So, there is an path throughout of the image. For this reason, this algorithm is slowness than other global thresholding algorithm which used the histogram. But the strong variabilities obtained are difficult to explain. This may come from the kernel calculation method even if we get a correct curve with proportional size images.
 
+### Max Entropy
+
+The max entropy tresholding method implemented in javascript and the one of ImageJ send similar results in terms of output image quality. However the ImageJ plugin are faster in terms of execution speed. That can be explain by the fact that the ImageJ method are encoded in Java, a language more adapted to this type of program.
+
+### Otsu
+
+We were able to compare our results for the otsu method with the otsu function of ImageJ, we get the same results in terms of output image quality but the ImageJ plugin at a much faster execution speed. However, it was expected that our function is surpassed by ImageJ and its plugin because they are encoded in Java, a language more powerful than JavaScript.
+
 ## Conclusion
 
 All the scripts works correctly and for those that can be compared to ImageJ functions, the results are identical. As planned, javascript in a web browser is slower than java compiled code in ImageJ. However these versions in javascript will allow to potentially make a web interface to use these with an Internet grader.
