@@ -102,6 +102,10 @@ The number of loop turn is only correlated to the k-number and not to the image 
 
 The loading of the Raster in the method takes around 75% of the time of the method.
 
+![Different threshold with kmeans](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ExempleKmeans.png)
+
+Bilevel thresholding and multilevel thresholding can be done with k-means clustering. The left image is the original, then it is a bilevel thresholding, then 3 clusters k-means (so 2 thresholds, 3 shades of grey) and finally 9 clusters k-means. 
+
 ### Adaptive threshold
 
 ![Benchmark of the Adaptive threshold method with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/benchImgJuju.png)
