@@ -36,7 +36,9 @@ To compute the integral image, the sum of all f(x,y) terms to the left and above
 
 
 <center>
+
 ![Equation of integral image.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equation%201.png)
+
 </center>
 *Equation of integral image.*
 
