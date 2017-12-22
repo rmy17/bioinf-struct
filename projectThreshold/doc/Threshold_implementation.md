@@ -97,43 +97,53 @@ The second method implemented is faster than the first (10 times faster on a 512
 The number of loop turn is only correlated to the k-number and not to the image size(Figure 3). 
 
 ![Ratio of time between the execution of algorithm and the creation od raster using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage4.png) 
-Figure 4 : Ratio of time between the execution of algorithm and the creation od raster using Firefox.
+*Figure 4 : Ratio of time between the execution of algorithm and the creation od raster using Firefox.*
 
 The loading of the Raster in the method takes around 75% of the time of the method(Figure 4).
 
 Bilevel thresholding and multilevel thresholding can be done with k-means clustering. The left image is the original, then it is a bilevel thresholding, then 3 clusters k-means (so 2 thresholds, 3 shades of grey) and finally 9 clusters k-means(Figure 5). 
 
 ![Examples of differents executions](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ExempleKmeans.png)
-Figure 5 : Examples of differents executions
+*Figure 5 : Examples of differents executions*
 
 
 ### Adaptive threshold
 
 ![Benchmark of the Adaptive threshold method with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/benchImgJuju.png)
-Figure 6 : Benchmark of the Adaptive threshold method with Firefox and Chrome.
+*Figure 6 : Benchmark of the Adaptive threshold method with Firefox and Chrome.*
 
-The figure 5 show that the obtained results from benchmarks are very variables, it's very surprising. Indeed, we can observe that the execution times globally increases with the the image size increasing. However, we can also observes that the execution with biggest size images is sometimes faster with small pictures. Another benchmark with increasing size images is proportional did not show any variability in the results. An exponential curve is observed, which has been expected (Figure 6).
+The figure 6 show that the obtained results from benchmarks are very variables, it's very surprising. Indeed, we can observe that the execution times globally increases with the the image size increasing. However, we can also observes that the execution with biggest size images is sometimes faster with small pictures. Another benchmark with increasing size images is proportional did not show any variability in the results. An exponential curve is observed, which has been expected (Figure 7).
 
 ![Benchmark of the Adaptative threshold method with proportional size images and with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/benchAdapMe.png)
+*Figure 7 : Benchmark of the Adaptative threshold method with proportional size images and with Firefox and Chrome*
 
-A threshold was made with an 8 bits and 16 bits image(Figure ).
+A threshold was made with an 8 bits and 16 bits image(Figure 8).
 
 ![Examples of the execution of 8bits(left) and 16 bits(rigth) image](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Adaptive.png)
-Examples of the execution of 8bits(left) and 16 bits(rigth) image.
+*Figure 8 : Examples of the execution of 8bits(left) and 16 bits(rigth) image.*
 
 ### Max Entropy
 
+The figure below show the result given by ImageJ’s function Auto-threshold which uses Max entropy method,and the maxEntropy() function implemented in javascript. We can see that we obtain similar results (Figure 9).
+
+![]()
+
+The results of benchmark for maxEntropy() function show two things. 
+
+![Execution time of maxEntropy() function with ten increasing image sizes (uint8 images)](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/BenchAlexis.png)
+*Figure 9 : Execution time of maxEntropy() function with ten increasing image sizes (uint8 images)*
+
 ### Otsu
 
-The two pictures below show the result given by ImageJ’s[^RUE2017] function Auto-threshold which uses Otsu method,and our otsu() function[^RID1978]. We can see that we obtain quite similar results(Figure ).
+The two pictures below show the result given by ImageJ’s[^RUE2017] function Auto-threshold which uses Otsu method,and our otsu() function[^RID1978]. We can see that we obtain quite similar results(Figure 10).
 
 ![Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/blobsmercia.png)
-Figure : Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold.
+*Figure 10: Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold.*
 
-The result of our benchmark for our function for images uint8 shows us the expected result: the otsu() function is the fastest. the function takes longer as the image grows. We can also see that the differences between the two browsers are firefox and chrome, as we increase the size of the input image, the algorithm takes three more times the execution time.This result was expected for otsu because its algorithm  operates on histograms (which are integer or float arrays of length 256), it's quite fast unlike adaptive threshold for example.
+The result of our benchmark for our function for images uint8 shows us the expected result: the otsu() function is the fastest. the function takes longer as the image grows. We can also see that the differences between the two browsers are firefox and chrome, as we increase the size of the input image, the algorithm takes three more times the execution time.This result was expected for otsu because its algorithm  operates on histograms (which are integer or float arrays of length 256), it's quite fast unlike adaptive threshold for example(Figure 11).
 
 ![benchmark of the Otsu method with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/BenchOtsuJuju.png)
-Figure : Execution time of the function with ten increasing image sizes (uint8 images).
+*Figure 11: Execution time of the function with ten increasing image sizes (uint8 images).*
 
 ## Discussion
 
@@ -148,6 +158,10 @@ The second method has be designed to improve the speed of the program. This impl
 ### Adaptive threshold
 
 The adaptive threshold algorithm is a local thresholding method. So, there is an path throughout of the image. For this reason, this algorithm is slowness than other global thresholding algorithm which used the histogram. But the strong variabilities obtained are difficult to explain. This may come from the kernel calculation method even if we get a correct curve with proportional size images.
+
+## Conclusion
+
+All the scripts works correctly and for those that can be compared to ImageJ functions, the results are identical. As planned, javascript in a web browser is slower than java compiled code in ImageJ. However these versions in javascript will allow to potentially make a web interface to use these with an Internet grader.
 
 ## References
 
