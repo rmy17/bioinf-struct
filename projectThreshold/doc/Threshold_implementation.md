@@ -33,11 +33,9 @@ The algorithm which creates a binary image uses the integral image tool to perfo
 1. Computation of the integral image.
 
 To compute the integral image, the sum of all f(x,y) terms to the left and above the pixels(x,y) is store at each location ,I(x,y) using the following equation 1 : 
-
- <img style="align:center" src="https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equation%201.png" alt="Equation of integral image.">
-    <em>Equation of integral image.</em>
     
 ![Equation of integral image.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equation%201.png)
+Equation 1 : Equation of integral image.
 
 In practice, a pixel of the integral image I(x,y) is calculated from the sum of the pixels of the image above f(x, yi) added to the left pixel of the previously calculated integral image such that I (x-1,y). 
 At the same time the thresholding step at pixel is compute.
@@ -49,6 +47,7 @@ At the same time the thresholding step at pixel is compute.
 the sum of the the pixel visited by the kernel is compute using the following equation :
 
 ![Equation of the sum of all pixel present in the kernel](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equationsum.png)
+Equation 2 : Equation of the sum of all pixel present in the kernel.
 
 5. Determination the pixel value.
 
@@ -56,9 +55,9 @@ To determine the pixel value of the binary image, the product of the pixel value
  
  ### Max-entropy
  
-The entropy of grayscale image is statistical measure of randomness that can be used to characterize the texture of the input image. It is used to describe the business of an image, i.e. the amount of information which must be coded for by a compression algorithm. This method use the derivation of the probability distribution of gray-levels to define the entropies and then find the maximum information between the object and the background - the entropy maximum, the threshold value.
+The entropy of grayscale image is statistical measure of randomness that can be used to characterize the texture of the input image. It is used to describe the business of an image, i.e. the amount of information which must be coded for by a compression algorithm. This method use the derivation of the probability distribution of gray-levels to define the entropies and then find the maximum information between the object and the background - the entropy maximum, the threshold value[^KAP1985].
  
-Programm summary:
+Program summary:
  
 1. Determine the normalized histogram, and then calculate the cumulative normalized histogram.
 2. Determine the first and the last non-zero bin.
@@ -67,9 +66,9 @@ Programm summary:
  
  ### Otsu
  
-Otsu method is a non-parametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bimodal histogram (foreground pixels and background pixels),and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes). The aim is to find the threshold value where the sum of foreground and background spreads is at its minimum.
+Otsu method is a non-parametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bimodal histogram[^GLAS1993] (foreground pixels and background pixels),and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes)[^OTS1979]. The aim is to find the threshold value where the sum of foreground and background spreads is at its minimum.
  
-Programm summary:
+Program summary:
  
 1. Compute histogram and probabilities of each intensity level.
 2. Set up initial class probability and initial class means.
@@ -85,47 +84,65 @@ The results are in millisecond and represent the mean of 100 iterations of the m
 ### k-means
 
 ![Benchmark with Firefox and Chrome(F = Firefox, C = Chrome).](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage1.png) 
+Figure 1 : Benchmark with Firefox and Chrome(F = Firefox, C = Chrome).
 
  The two implemented methods are faster on Firefox than on Chrome. The result are also less fluctuating on Firefox. 
 
 ![Comparison between two implementation with and without histogram.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage2.png) 
+Figure 2 : Comparison between two implementation with and without histogram.
 
 The second method implemented is faster than the first (10 times faster on a 512*512 pixels image to 50 times faster on a image with 10x more pixels). 
 
-
-![Benchmark to compare the two K values K=2 and K=3 using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage3.png)  
+![Benchmark to compare the two K values K=2 and K=3 using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage3.png)
+Figure 3 : Benchmark to compare the two K values K=2 and K=3 using Firefox.
 
 The number of loop turn is only correlated to the k-number and not to the image size. 
 
-
-![Ratio of time between the execution of algorithm and the creation od raster using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage4.png)  
+![Ratio of time between the execution of algorithm and the creation od raster using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage4.png) 
+Figure 4 : Ratio of time between the execution of algorithm and the creation od raster using Firefox.
 
 The loading of the Raster in the method takes around 75% of the time of the method.
 
 ![Different threshold with kmeans](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ExempleKmeans.png)
+Figure 5 : Different threshold with kmeans.
 
-Bilevel thresholding and multilevel thresholding can be done with k-means clustering. The left image is the original, then it is a bilevel thresholding, then 3 clusters k-means (so 2 thresholds, 3 shades of grey) and finally 9 clusters k-means. 
+Bilevel thresholding and multilevel thresholding can be done with k-means clustering. The left image is the original, then it is a bilevel thresholding, then 3 clusters k-means (so 2 thresholds, 3 shades of grey) and finally 9 clusters k-means(Figure 6). 
+
+![Examples of differents executions](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ExempleKmeans.png)
+Figure 6 : Examples of differents executions
+
 
 ### Adaptive threshold
 
 ![Benchmark of the Adaptive threshold method with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/benchImgJuju.png)
+Figure 6 : Benchmark of the Adaptive threshold method with Firefox and Chrome.
 
 The figure 5 show that the obtained results from benchmarks are very variables, it's very surprising. Indeed, we can observe that the execution times globally increases with the the image size increasing. However, we can also observes that the execution with biggest size images is sometimes faster with small pictures. Another benchmark with increasing size images is proportional did not show any variability in the results. An exponential curve is observed, which has been expected (Figure 6).
 
 ![Benchmark of the Adaptative threshold method with proportional size images and with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/benchAdapMe.png)
 
+A threshold was made with an 8 bits and 16 bits image(Figure ).
+
+![Examples of the execution of 8bits(left) and 16 bits(rigth) image](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Adaptive.png)
+Examples of the execution of 8bits(left) and 16 bits(rigth) image.
+
 ### Max Entropy
 
 ### Otsu
 
+The two pictures below show the result given by ImageJ’s[^RUE2017] function Auto-threshold which uses Otsu method,and our otsu() function. We can see that we obtain quite similar results(Figure ).
+
+![Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/blobsmercia.png)
+Figure : Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold.
+
 The result of our benchmark for our function for images uint8 shows us the expected result: the otsu() function is the fastest. the function takes longer as the image grows. We can also see that the differences between the two browsers are firefox and chrome, as we increase the size of the input image, the algorithm takes three more times the execution time.This result was expected for otsu because its algorithm  operates on histograms (which are integer or float arrays of length 256), it's quite fast unlike adaptive threshold for example.
 
 ![benchmark of the Otsu method with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/BenchOtsuJuju.png)
-*Execution time of the function with ten increasing image sizes (uint8 images)*
+Figure : Execution time of the function with ten increasing image sizes (uint8 images).
 
 ## Discussion
 
-All the functions can handle the processing of pictures up to 2048x2048 pixels and maybe higher, and two types : uint8, uint16.
+All the functions can handle the processing of pictures up to 2024x2024 pixels and maybe higher, and two types : uint8, uint16.
 
 ### K-means
 
@@ -140,3 +157,10 @@ The adaptive threshold algorithm is a local thresholding method. So, there is an
 ## References
 
 [^BRA2007]: Bradley D, Roth G. Adaptive thresholding using integral image. Journal of Graphics Tools. Volume 12, Issue 2.  pp. 13-21. 2007. NRC 48816.
+[^GLAS1993]: Glasbey CA.An analysis of histogram-based thresholding algorithms.CVGIP: Graphical Models and Image Processing.1993 Nov;55:532-537
+[^KAP1985]: Kapur JN, Sahoo PK, Wong ACK.A New Method for Gray-Level Picture Thresholding Using the Entropy of the Histogram.Graphical Models and Image Processing.1985 Mar;29(3):273-285
+[^OTS1979]: Otsu N.A threshold selection method from gray-level histograms.IEEE Transactions on systems, man and cybernetics.1979 Jan;9:62-66
+[^RID1978]: Ridler TW, Calvard S.Picture thresholding using an iterative selection method.IEEE Transactions on Systems, Man and Cybernetics.1978 Aug ;8:630-632.
+[^RUE2017]: Rueden, Curtis T., et al. "ImageJ2: ImageJ for the next generation of scientific image data." BMC bioinformatics 18.1 (2017): 529.
+ 
+
