@@ -117,7 +117,7 @@ The figure 5 show that the obtained results from benchmarks are very variables, 
 The result of our benchmark for our function for images uint8 shows us the expected result: the otsu() function is the fastest. the function takes longer as the image grows. We can also see that the differences between the two browsers are firefox and chrome, as we increase the size of the input image, the algorithm takes three more times the execution time.This result was expected for otsu because its algorithm  operates on histograms (which are integer or float arrays of length 256), it's quite fast unlike adaptive threshold for example.
 
 ![benchmark of the Otsu method with Firefox and Chrome](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/BenchOtsuJuju.png)
-\caption{Execution time of the function with ten increasing image sizes (uint8 images)}
+*Execution time of the function with ten increasing image sizes (uint8 images)*
 
 ## Discussion
 
