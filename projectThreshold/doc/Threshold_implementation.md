@@ -35,7 +35,6 @@ The algorithm which creates a binary image uses the integral image tool to perfo
 To compute the integral image, the sum of all f(x,y) terms to the left and above the pixels(x,y) is store at each location ,I(x,y) using the following equation 1 : 
     
 ![Equation of integral image.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equation%201.png)
-Equation 1 : Equation of integral image.
 
 In practice, a pixel of the integral image I(x,y) is calculated from the sum of the pixels of the image above f(x, yi) added to the left pixel of the previously calculated integral image such that I (x-1,y). 
 At the same time the thresholding step at pixel is compute.
@@ -47,7 +46,6 @@ At the same time the thresholding step at pixel is compute.
 the sum of the the pixel visited by the kernel is compute using the following equation :
 
 ![Equation of the sum of all pixel present in the kernel](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equationsum.png)
-Equation 2 : Equation of the sum of all pixel present in the kernel.
 
 5. Determination the pixel value.
 
@@ -84,32 +82,29 @@ The results are in millisecond and represent the mean of 100 iterations of the m
 ### k-means
 
 ![Benchmark with Firefox and Chrome(F = Firefox, C = Chrome).](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage1.png) 
-Figure 1 : Benchmark with Firefox and Chrome(F = Firefox, C = Chrome).
+*Figure 1 : Benchmark with Firefox and Chrome(F = Firefox, C = Chrome).*
 
- The two implemented methods are faster on Firefox than on Chrome. The result are also less fluctuating on Firefox. 
+ The two implemented methods are faster on Firefox than on Chrome. The result are also less fluctuating on Firefox(Figure 1). 
 
 ![Comparison between two implementation with and without histogram.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage2.png) 
-Figure 2 : Comparison between two implementation with and without histogram.
+*Figure 2 : Comparison between two implementation with and without histogram.*
 
-The second method implemented is faster than the first (10 times faster on a 512*512 pixels image to 50 times faster on a image with 10x more pixels). 
+The second method implemented is faster than the first (10 times faster on a 512*512 pixels image to 50 times faster on a image with 10x more pixels)(Figure 2). 
 
 ![Benchmark to compare the two K values K=2 and K=3 using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage3.png)
-Figure 3 : Benchmark to compare the two K values K=2 and K=3 using Firefox.
+*Figure 3 : Benchmark to compare the two K values K=2 and K=3 using Firefox.*
 
-The number of loop turn is only correlated to the k-number and not to the image size. 
+The number of loop turn is only correlated to the k-number and not to the image size(Figure 3). 
 
 ![Ratio of time between the execution of algorithm and the creation od raster using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage4.png) 
 Figure 4 : Ratio of time between the execution of algorithm and the creation od raster using Firefox.
 
-The loading of the Raster in the method takes around 75% of the time of the method.
+The loading of the Raster in the method takes around 75% of the time of the method(Figure 4).
 
-![Different threshold with kmeans](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ExempleKmeans.png)
-Figure 5 : Different threshold with kmeans.
-
-Bilevel thresholding and multilevel thresholding can be done with k-means clustering. The left image is the original, then it is a bilevel thresholding, then 3 clusters k-means (so 2 thresholds, 3 shades of grey) and finally 9 clusters k-means(Figure 6). 
+Bilevel thresholding and multilevel thresholding can be done with k-means clustering. The left image is the original, then it is a bilevel thresholding, then 3 clusters k-means (so 2 thresholds, 3 shades of grey) and finally 9 clusters k-means(Figure 5). 
 
 ![Examples of differents executions](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ExempleKmeans.png)
-Figure 6 : Examples of differents executions
+Figure 5 : Examples of differents executions
 
 
 ### Adaptive threshold
@@ -130,7 +125,7 @@ Examples of the execution of 8bits(left) and 16 bits(rigth) image.
 
 ### Otsu
 
-The two pictures below show the result given by ImageJ’s[^RUE2017] function Auto-threshold which uses Otsu method,and our otsu() function. We can see that we obtain quite similar results(Figure ).
+The two pictures below show the result given by ImageJ’s[^RUE2017] function Auto-threshold which uses Otsu method,and our otsu() function[^RID1978]. We can see that we obtain quite similar results(Figure ).
 
 ![Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/blobsmercia.png)
 Figure : Results of otsu method. on the left: original image, in the middle: output of our function, on the right: output of ImageJ Threshold.
@@ -157,10 +152,15 @@ The adaptive threshold algorithm is a local thresholding method. So, there is an
 ## References
 
 [^BRA2007]: Bradley D, Roth G. Adaptive thresholding using integral image. Journal of Graphics Tools. Volume 12, Issue 2.  pp. 13-21. 2007. NRC 48816.
-[^GLAS1993]: Glasbey CA.An analysis of histogram-based thresholding algorithms.CVGIP: Graphical Models and Image Processing.1993 Nov;55:532-537
-[^KAP1985]: Kapur JN, Sahoo PK, Wong ACK.A New Method for Gray-Level Picture Thresholding Using the Entropy of the Histogram.Graphical Models and Image Processing.1985 Mar;29(3):273-285
-[^OTS1979]: Otsu N.A threshold selection method from gray-level histograms.IEEE Transactions on systems, man and cybernetics.1979 Jan;9:62-66
+
+[^GLAS1993]: Glasbey CA.An analysis of histogram-based thresholding algorithms.CVGIP: Graphical Models and Image Processing.1993 Nov;55:532-537.
+
+[^KAP1985]: Kapur JN, Sahoo PK, Wong ACK.A New Method for Gray-Level Picture Thresholding Using the Entropy of the Histogram.Graphical Models and Image Processing.1985 Mar;29(3):273-285.
+
+[^OTS1979]: Otsu N.A threshold selection method from gray-level histograms.IEEE Transactions on systems, man and cybernetics.1979 Jan;9:62-66.
+
 [^RID1978]: Ridler TW, Calvard S.Picture thresholding using an iterative selection method.IEEE Transactions on Systems, Man and Cybernetics.1978 Aug ;8:630-632.
+
 [^RUE2017]: Rueden, Curtis T., et al. "ImageJ2: ImageJ for the next generation of scientific image data." BMC bioinformatics 18.1 (2017): 529.
  
 
