@@ -15,43 +15,41 @@ k-means clustering is a method of vector quantization, it is one of the most pop
 The method has been adapted to automatic thresholding : each cluster will represent one side of a threshold. Choosing 2 clusters (k=2) will result in a bilevel thresholding. Choosing 3 or more will result in a multilevel thresholding. The mean of each cluster is usually called a "centroid".
 
 Programm summary:
-<ol>
-<li>Initialization of k-numbers of random centroids.</li>
-<li>Create k-numbers of cluster by labeling each pixel of the image with its closest centroid.</li>
-<li>Compute the mean of each cluster to create brand new k-numbers of centroids.</li>
-<li>Label each pixel with its closest new centroid and confront them to the old labels :
+
+1. Initialization of k-numbers of random centroids.
+2. Create k-numbers of cluster by labeling each pixel of the image with its closest centroid.
+3. Compute the mean of each cluster to create brand new k-numbers of centroids.
+4. Label each pixel with its closest new centroid and confront them to the old labels :
     If the old and new labels are exactly the same, stop the loop.
     Else, new labels supersede old labels then repeat steps 3 and 4.
-    </li>
-<li>Each pixel take the value of its closest centroid. If k=2, each pixel can become black or white.</li>
-</ol>
+5. Each pixel take the value of its closest centroid. If k=2, each pixel can become black or white.
 
 ### Adaptive threshold
 
 Adaptive thresholding is the common solution that takes order to account for variations in illumination. The main difference with the other techniques is that a different threshold value is computed for each pixel in the image. This makes this technique more robust to variations in image illumination. 
 
 The algorithm which creates a binary image uses the integral image tool to perform the calculations. it allow to compute the sum over multiple overlapping rectangular windows and achieve a constant number of operations per rectangle with only a linear amount of preprocessing. The algorithm contains several steps : 
-<ul>
-<li>Computation of the integral image.</li>
+
+1. Computation of the integral image.
 
 To compute the integral image, the sum of all f(x,y) terms to the left and above the pixels(x,y) is store at each location ,I(x,y) using the following equation 1 : 
 
 
 ![Equation of integral image](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equation%201.png)
 
-In practice, a pixel of the integral image I(x,y) is calculated from the sum of the pixels of the image above f(x, yi) added to the left pixel of the previously calculated integral image such that I (x-1,y). 
+ In practice, a pixel of the integral image I(x,y) is calculated from the sum of the pixels of the image above f(x, yi) added to the left pixel of the previously calculated integral image such that I (x-1,y). 
 At the same time the thresholding step at pixel is compute.
 
-<li>Computation kernel coordinates.</li>
-<li>Computation the area of kernel.</li>
-<li>Computation the sum of the pixels visited by the kernel.</li>
+2. Computation kernel coordinates.
+3. Computation the area of kernel.
+4. Computation the sum of the pixels visited by the kernel.
 
 the sum of the the pixel visited by the kernel is compute using the following equation :
 
 
 ![Equation of the sum integral image pixels](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Equationsum.png)
 
-<li>Determination the pixel value.</li>
+5. Determination the pixel value.</li>
 
 
  To determine the pixel value of the binary image, the product of the pixel value of the input image and the area of kernel is compared to the product of the sum of the pixels of the kernel with value given by the user to modulate this sum value. If the first product is lower than the second or equal the value of the pixel will be 0 and vice versa of 255.
@@ -60,28 +58,26 @@ the sum of the the pixel visited by the kernel is compute using the following eq
  
  The entropy of grayscale image is statistical measure of randomness that can be used to characterize the texture of the input image. It is used to describe the business of an image, i.e. the amount of information which must be coded for by a compression algorithm. This method use the derivation of the probability distribution of gray-levels to define the entropies and then find the maximum information between the object and the background - the entropy maximum, the threshold value.
  
- Programm summary:
+Programm summary:
  
- <ul>
- <li>Determine the normalized histogram, and then calculate the cumulative normalized histogram.</li>
- <li>Determine the first and the last non-zero bin.</li>
- <li>Calculate the entropy of the background pixels and the entropy of object pixels.</li>
- <li>Add these two entropy to get the total entropy for each gray-level and find the threshold that maximizes it.</li>
- </ul>
+1. Determine the normalized histogram, and then calculate the cumulative normalized histogram.
+2. Determine the first and the last non-zero bin.
+3. Calculate the entropy of the background pixels and the entropy of object pixels.
+4. Add these two entropy to get the total entropy for each gray-level and find the threshold that maximizes it.
+
  
  ### Otsu
  
  Otsu method is a non-parametric and unsupervised method of automatic threshold selection for picture segmentation. The algorithm assumes that the image contains two classes of pixels following bimodal histogram (foreground pixels and background pixels),and search for the threshold that minimizes the intra-class variance (weighted sum of variances of the two classes). The aim is to find the threshold value where the sum of foreground and background spreads is at its minimum.
  
- Programm summary:
+Programm summary:
  
- <ul>
- <li>Compute histogram and probabilities of each intensity level.</li>
- <li>Set up initial class probability and initial class means.</li>
- <li>Step through all possible thresholds maximum intensity.</li>
- <li>Compute between class variance.</li>
- <li>Desired threshold corresponds to the maximum value of between class variance.</li>
- </ul>
+
+1. Compute histogram and probabilities of each intensity level.
+2. Set up initial class probability and initial class means.
+3. Step through all possible thresholds maximum intensity.
+4. Compute between class variance.
+5. Desired threshold corresponds to the maximum value of between class variance.
  
  ## Results
  
@@ -90,10 +86,25 @@ The results are in millisecond and represent the mean of 100 iterations of the m
 
 ### k-means
 
-Image 1 The two implemented methods are faster on Firefox than on Chrome. The result are also less fluctuating on Firefox. 
-Image 2 The second method implemented is faster than the first (10 times faster on a 512*512 pixels image to 50 times faster on a image with 10x more pixels). 
-Image 3 The number of loop turn is only correlated to the k-number and not to the image size. 
-Image 4 The loading of the Raster in the method takes around 75% of the time of the method.
+![Benchmark with Firefox and Chrome(F = Firefox, C = Chrome).](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage1.png) 
+
+  The two implemented methods are faster on Firefox than on Chrome. The result are also less fluctuating on Firefox. 
+
+![Comparison between two implementation with and without histogram.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage2.png) 
+
+The second method implemented is faster than the first (10 times faster on a 512*512 pixels image to 50 times faster on a image with 10x more pixels). 
+
+
+![Benchmark to compare the two K values K=2 and K=3 using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage3.png)  
+
+The number of loop turn is only correlated to the k-number and not to the image size. 
+
+
+![Ratio of time between the execution of algorithm and the creation od raster using Firefox.](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/KmeansImage4.png)  
+
+The loading of the Raster in the method takes around 75% of the time of the method.
+
+
 
 ## References
 
