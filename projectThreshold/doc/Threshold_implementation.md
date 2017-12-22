@@ -217,4 +217,4 @@ All the scripts works correctly and for those that can be compared to ImageJ fun
 
 [^RUE2017]: Rueden, Curtis T., et al. "ImageJ2: ImageJ for the next generation of scientific image data." BMC bioinformatics 18.1 (2017): 529.
  
-
+ 
