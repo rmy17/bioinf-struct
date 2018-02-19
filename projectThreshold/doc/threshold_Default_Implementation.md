@@ -28,6 +28,8 @@ Once the functions written, it is interesting to know which implementation is th
 To measure the efficiency of our different functions, images with different sizes have been created from the Boat image available on the time project and the ImageJ image samples.
 
 ![Image1](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png "Boats")
+
+
 Figure 1: Image of Boats used to test our function and run the Benchmark.
 
 
@@ -40,15 +42,15 @@ The function has been translated in javascript (thresholdDefaultIJ file) then mo
 The implemented functions return the same threshold value than the ImageJ implementation. We can see below the image thresholded with our implementation and the ImageJ threshold.
 
 ![Image2](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png "Comparison ImageJ Function Default Threshold")
+
+
 Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.
 
 The benchmark of our two functions and the ImageJ functions have been realized with a warmup phase of 100 iterations. Then the average time for each image size has been calculated on 1000 iterations per image. The result is displayed in milliseconds.
 
-<figure>
-    <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ResultsBenchmarkThresholdDefault.png)" alt="Image" />
-    <center><figcaption>Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.
-
 ![Image3](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ResultsBenchmarkThresholdDefault.png "Comparison ImageJ Function Default Threshold")
+
+
 Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.
 
 
