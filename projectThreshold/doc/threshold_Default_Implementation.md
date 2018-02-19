@@ -8,7 +8,7 @@ Image segmentation consists in modifying an image to make it easier to process a
 Thresholding consists in the calculation of a value depending on the image given in input, and then transforms the pixels depending on this value. It transforms the image in binary, if the pixel is under or upper this value, its value will become 0 or 255 (depending on the chosen parameters).
 Here we are interested in the Default mode which uses the Iso Data thresholding. This method has been established by Ridler and Calvard[^RID1978].
 Here is proposed two implementations of this method in JavaScript, with one using the paradigm of functional programming. The implementation has been done using the Java code of ImageJ of the function *defaultIsoData()* in the file *AutoThresholder.java*.
-This work has been performed in the context of the *time* project which stands for Tiny Image Processing in ECMAScript. It can be found on Github at [crazybiocomputing][times].
+This work has been performed in the context of the *time* project which stands for Tiny Image Processing in ECMAScript. It can be found on the  [Github crazybiocomputing](https://github.com/crazybiocomputing/times).
 The Material and methods part will describe the *defaultIsoData()* function of ImageJ and the Benchmark procedure. The result part will be about the comparison of the proposed implementation with the ImageJ implementation.
 
 
@@ -74,6 +74,3 @@ The proposed implementation in JavaScript is slower than the ImageJ function in 
 
 [^JHU1989]:  J. Hughes, "Why Functional Programming Matters", The Computer Journal, Volume 32, Issue 2, 1 January 1989, Pages 98–107,  01 January 1989
 
-[times] : https://github.com/crazybiocomputing/times "Github crazybiocomputing"
-
-[ij] : https://imagej.net/Welcome "Website of ImageJ"
