@@ -14,7 +14,7 @@ The Material and methods part will describe the *defaultIsoData()* function of I
 
 ## Material and Methods
 
-ImageJ is an open source image processing program written in Java which is used by the scientific community. The [ImageJ][ij] application and its source code will always be freely available.
+ImageJ is an open source image processing program written in Java which is used by the scientific community. The [ImageJ](https://imagej.net/Welcome) application and its source code will always be freely available.
 The source code of the function can be found on the Github of ImageJ in the *Auto_Thresholder.java* file. It uses the IsoData methods which use an iterative mean procedure.
 It consists in dividing the image into object and background by calculating the averages of the pixels that are above or below an initial threshold. Then it increments the threshold with the previously calculated values and repeats the process until the threshold calculated is larger than the average.
 It is expressed by the formula:  
