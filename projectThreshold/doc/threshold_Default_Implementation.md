@@ -27,6 +27,7 @@ Once the function has been translated, the code has been transformed using the p
 Once the functions written, it is interesting to know which implementation is the more efficient. To answer this question, we will use Benchmarking, more precisely Micro-Benchmarking. The Benchmark consists in knowing the relative performance of a program while running it. It allows the developper to see if his algorithm and implementation are an improvement compared to the references. Micro Benchmarking is a specific Benchmark. The difference is that Micro Benchmark just mesure the performances of a little piece of code, here we compare plugins and not softwares for instance.  So here we will compare the execution time of our functions of interest on different images.
 To measure the efficiency of our different functions, images with different sizes have been created from the Boat image available on the time project and the ImageJ image samples.
 
+![Image1](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png "Figure 1: Image of Boats used to test our function and run the Benchmark.")
 <figure>
     <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png)" alt="Image" />
     <center><figcaption>Figure 1: Image of Boats used to test our function and run the Benchmark.</figcaption></center>
