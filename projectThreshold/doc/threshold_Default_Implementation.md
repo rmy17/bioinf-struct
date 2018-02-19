@@ -13,6 +13,7 @@ The Material and methods part will explain what is ImageJ and describe its funct
 
 
 ## Material and Methods
+
 ImageJ is an open source image processing program which is used by the scientific community. The [ImageJ][ij] application and its source code will always be freely available.
 The Default function of ImageJ is the original method of auto-thresholding of ImageJ. The source code of the function can be found on the Github of ImageJ in the *Auto_Thresholder.java* file. It uses the IsoData methods which use an iterative mean procedure.
 It consists in dividing the image into object and background by calculating the averages of the pixels that are above or below an initial threshold. Then it increments the threshold with the previously calculated values and repeats the process until the threshold calculated is larger than the composite average.
@@ -32,6 +33,7 @@ To measure the efficiency of our different functions, images with different size
 </figure>
 
 
+
 The pixel list of this image has been concatenated to obtain a higher image from the original one.  Thus, from a 360x288 image, we obtain 360x576, 360x864, 360x1152 and 360x1440 images.
  The two implementations done (with and without functional programming) will be compared with the ImageJ function. It is interesting to know if the version of a web ImageJ is more or less fast and resource consuming than the original one.
 
@@ -44,6 +46,7 @@ The implemented functions return the same threshold value than the ImageJ implem
     <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png)" alt="Image" />
     <center><figcaption>Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.</figcaption></center>
 </figure>
+
 
 
 The benchmark of our two functions and the ImageJ functions have been realized with a warmup phase of 100 iterations. Then the average time for each image size has been calculated on 1000 iterations per image. The result is displayed in milliseconds.
