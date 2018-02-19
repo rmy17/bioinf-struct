@@ -16,10 +16,12 @@ The Material and methods part will explain what is ImageJ and describe its funct
 ImageJ is an open source image processing program which is used by the scientific community. The [ImageJ][ij] application and its source code will always be freely available.
 The Default function of ImageJ is the original method of auto-thresholding of ImageJ. The source code of the function can be found on the Github of ImageJ in the *Auto_Thresholder.java* file. It uses the IsoData methods which use an iterative mean procedure.
 It consists in dividing the image into object and background by calculating the averages of the pixels that are above or below an initial threshold. Then it increments the threshold with the previously calculated values and repeats the process until the threshold calculated is larger than the composite average.
-It is expressed by the formula:
-threshold = (average background + average objects)/2.
+It is expressed by the formula:  
+*threshold = (average background + average objects)/2.*
+
 The function works with an image histogram (array) as entry and returns an integer which is the value of the threshold.
 The aim of this work is to translate from the java code of ImageJ to a javascript code. It is interesting because Javascript can be used to create a web interface of ImageJ.
+
 Once the function has been translated, the code has been transformed using the paradigm of functional programming. It consists in another way of thinking programing.  It is different from imperative programming because it uses few loops and use High Order function and pure functions.  The code is shorter and this approach avoid the side effects[^JHU1989].
 Once the functions written, it is interesting to know which implementation is the more efficient. To answer this question, we will use Benchmarking, more precisely Micro-Benchmarking. The Benchmark consists in knowing the relative performance of a program while running it. It allows the developper to see if his algorithm and implementation are an improvement compared to the references. Micro Benchmarking is a specific Benchmark. The difference is that Micro Benchmark just mesure the performances of a little piece of code, here we compare plugins and not softwares for instance.  So here we will compare the execution time of our functions of interest on different images.
 To measure the efficiency of our different functions, images with different sizes have been created from the Boat image available on the time project and the ImageJ image samples.
@@ -29,17 +31,20 @@ To measure the efficiency of our different functions, images with different size
     <center><figcaption>Figure 1: Image of Boats used to test our function and run the Benchmark.</figcaption></center>
 </figure>
 
+
 The pixel list of this image has been concatenated to obtain a higher image from the original one.  Thus, from a 360x288 image, we obtain 360x576, 360x864, 360x1152 and 360x1440 images.
  The two implementations done (with and without functional programming) will be compared with the ImageJ function. It is interesting to know if the version of a web ImageJ is more or less fast and resource consuming than the original one.
 
 ## Results and discussion
-The function has been translated in javascript (annexe1) then modified using the functional programming paradigm (function2). The translation part of this work has been done. The modification has been done using first-order functions but not all the loops have been removed. Indeed, no other way to do the while loops and the do/while loop has been found. Furthermore, an "if" statement remains after the transformation because it contains a return statement, it was then no longer possible to use the ternary operator.
+The function has been translated in javascript (thresholdDefaultIJ file) then modified using the functional programming paradigm (thresholdDefaukt file). The translation part of this work has been done. The modification has been done using first-order functions but not all the loops have been removed. Indeed, no other way to do the while loops and the do/while loop has been found. Furthermore, an "if" statement remains after the transformation because it contains a return statement, it was then no longer possible to use the ternary operator.
+
 The implemented functions return the same threshold value than the ImageJ implementation. We can see below the image thresholded with our implementation and the ImageJ threshold.
 
 <figure>
     <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png)" alt="Image" />
     <center><figcaption>Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.</figcaption></center>
 </figure>
+
 
 The benchmark of our two functions and the ImageJ functions have been realized with a warmup phase of 100 iterations. Then the average time for each image size has been calculated on 1000 iterations per image. The result is displayed in milliseconds.
 
@@ -48,7 +53,9 @@ The benchmark of our two functions and the ImageJ functions have been realized w
     <center><figcaption>Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.</figcaption></center>
 </figure>
 
+
 We can notice that the ImageJ function is way faster than the Javascript implementations. It can be explained by the fact that ImageJ is a pre-compiled language.
+
 Also, the curve corresponding to the execution time of the ImageJ function does not seems to increase. We can suppose that the image sizes do not increase enough to see a change. Another thing is that the other functions increase too much to see correctly the changes in the ImageJ curve, even if it increases a little bit.
 We can also notice that, even if the functional version is a little bit faster, the two implementations done are quite similar and increased a lot when the image size increases.
 
