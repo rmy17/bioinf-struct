@@ -27,12 +27,8 @@ Once the function has been translated, the code has been transformed using the p
 Once the functions written, it is interesting to know which implementation is the more efficient. To answer this question, we will use Benchmarking, more precisely Micro-Benchmarking. The Benchmark consists in knowing the relative performance of a program while running it. It allows the developper to see if his algorithm and implementation are an improvement compared to the references. Micro Benchmarking is a specific Benchmark. The difference is that Micro Benchmark just mesure the performances of a little piece of code, here we compare plugins and not softwares for instance.  So here we will compare the execution time of our functions of interest on different images.
 To measure the efficiency of our different functions, images with different sizes have been created from the Boat image available on the time project and the ImageJ image samples.
 
-![Image1](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png "Figure 1: Image of Boats used to test our function and run the Benchmark.")
-<figure>
-    <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png)" alt="Image" />
-    <center><figcaption>Figure 1: Image of Boats used to test our function and run the Benchmark.</figcaption></center>
-</figure>
-
+![Image1](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png "Boats")
+Figure 1: Image of Boats used to test our function and run the Benchmark.
 
 
 The pixel list of this image has been concatenated to obtain a higher image from the original one.  Thus, from a 360x288 image, we obtain 360x576, 360x864, 360x1152 and 360x1440 images.
@@ -43,19 +39,17 @@ The function has been translated in javascript (thresholdDefaultIJ file) then mo
 
 The implemented functions return the same threshold value than the ImageJ implementation. We can see below the image thresholded with our implementation and the ImageJ threshold.
 
-<figure>
-    <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png)" alt="Image" />
-    <center><figcaption>Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.</figcaption></center>
-</figure>
-
-
+![Image2](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png "Comparison ImageJ Function Default Threshold")
+Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.
 
 The benchmark of our two functions and the ImageJ functions have been realized with a warmup phase of 100 iterations. Then the average time for each image size has been calculated on 1000 iterations per image. The result is displayed in milliseconds.
 
 <figure>
     <img src="(https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ResultsBenchmarkThresholdDefault.png)" alt="Image" />
-    <center><figcaption>Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.</figcaption></center>
-</figure>
+    <center><figcaption>Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.
+
+![Image3](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ResultsBenchmarkThresholdDefault.png "Comparison ImageJ Function Default Threshold")
+Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.
 
 
 We can notice that the ImageJ function is way faster than the Javascript implementations. It can be explained by the fact that ImageJ is a pre-compiled language.
