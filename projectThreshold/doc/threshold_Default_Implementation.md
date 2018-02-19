@@ -39,7 +39,7 @@ The pixel list of this image has been concatenated to obtain a higher image from
 ## Results and discussion
 The function has been translated in javascript (thresholdDefaultIJ file) then modified using the functional programming paradigm (thresholdDefaukt file). The translation part of this work has been done. The modification has been done using first-order functions but not all the loops have been removed. Indeed, no other way to do the while loops and the do/while loop has been found. Furthermore, an "if" statement remains after the transformation because it contains a return statement, it was then no longer possible to use the ternary operator.
 
-The implemented functions return the same threshold value than the ImageJ implementation. We can see below the image thresholded with our implementation and the ImageJ threshold.
+The implemented functions return the same threshold value than the ImageJ implementation. We can see below the image thresholded with our implementation and the ImageJ threshold. We can notice that the output is the same in both cases and that the implementation succeeds.
 
 ![Image2](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png "Comparison ImageJ Function Default Threshold")
 
