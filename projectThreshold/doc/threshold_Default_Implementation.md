@@ -1,6 +1,9 @@
 # Implementation of the Default ImageJ Threshold Method
+
 Author : De Mecquenem Ninon
+
 ##Introduction
+
 Image segmentation consists in modifying an image to make it easier to process afterward. The image segmentation methods are very important in image processing. Indeed, it allows automatic target detection and recognition which is useful in domains like the analysis of medical images or microscope images in Biology or video surveillance. It can be applied to different methods just as Edge Detection, the watershed, and the method that interesting us, the thresholding. [^SEG2007]
 Thresholding consists in the calculation of a value depending on the image given in input and then transforms the pixels depending on this value. It transforms the image in binary, if the pixel is under or upper this value, its value will become 0 or 255 (depending on the chosen parameters).
 Here we are interested in the Default mode which uses the Iso Data thresholding. This method has been established by Ridler and TW&Calvard [^RID1978].
