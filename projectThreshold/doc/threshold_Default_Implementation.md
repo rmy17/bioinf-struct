@@ -6,7 +6,7 @@ Author : De Mecquenem Ninon
 
 Image segmentation consists in modifying an image to make it easier to process afterward. The image segmentation methods are very important in image processing. Indeed, it allows automatic target detection and recognition which is useful in domains like the analysis of medical images or microscope images in Biology or video surveillance. It can be applied to different methods just as Edge Detection, the watershed, and the method that interesting us, the thresholding[^SEG2007].
 Thresholding consists in the calculation of a value depending on the image given in input and then transforms the pixels depending on this value. It transforms the image in binary, if the pixel is under or upper this value, its value will become 0 or 255 (depending on the chosen parameters).
-Here we are interested in the Default mode which uses the Iso Data thresholding. This method has been established by Ridler and TW&Calvard[^RID1978].
+Here we are interested in the Default mode which uses the Iso Data thresholding. This method has been established by Ridler and Calvard[^RID1978].
 Here is proposed two implementations of this method in javascript, with one using the paradigm of functional programming. The implementation has been done using the Java code of ImageJ of the function *defaultIsoData()* in the file *AutoThresholder.java*.
 This work has been done in the context of the *time* project which stands for Tiny Image Processing in ECMAScript. It can be found on Github at [crazybiocomputing][times].
 The Material and methods part will explain what is ImageJ and describe its function *defaultIsoData()* . The result part will be about the comparison of the proposed implementation with the ImageJ implementation.
@@ -30,7 +30,7 @@ To measure the efficiency of our different functions, images with different size
 ![Image1](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/Boats.png "Boats")
 
 
-Figure 1: Image of Boats used to test our function and run the Benchmark.
+*Figure 1: Image of Boats used to test our function and run the Benchmark.*
 
 
 The pixel list of this image has been concatenated to obtain a higher image from the original one.  Thus, from a 360x288 image, we obtain 360x576, 360x864, 360x1152 and 360x1440 images.
@@ -44,14 +44,14 @@ The implemented functions return the same threshold value than the ImageJ implem
 ![Image2](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ComparisonImageJFunctionDefaultThreshold.png "Comparison ImageJ Function Default Threshold")
 
 
-Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.
+*Figure 2: Comparison of the output of the threshold function of ImageJ and of the Javascript implementation.*
 
 The benchmark of our two functions and the ImageJ functions have been realized with a warmup phase of 100 iterations. Then the average time for each image size has been calculated on 1000 iterations per image. The result is displayed in milliseconds.
 
 ![Image3](https://github.com/rmy17/bioinf-struct/blob/master/projectThreshold/images/ResultsBenchmarkThresholdDefault.png "Comparison ImageJ Function Default Threshold")
 
 
-Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.
+*Figure 3: Results of the Benchmark. Time of execution of threshold default in milliseconds of our Javascript implementation (ThresholdDefaultIJ), our implementation using functional programming (ThresholdDefault) and the ImageJ one.*
 
 
 We can notice that the ImageJ function is way faster than the Javascript implementations. It can be explained by the fact that ImageJ is a pre-compiled language.
