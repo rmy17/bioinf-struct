@@ -68,4 +68,4 @@ The proposed implementation in Javascript is slower than the ImageJ function in 
 
 [times] : https://github.com/crazybiocomputing/times "Github crazybiocomputing"
 
-[ij]: https://imagej.net/Welcome "Website of ImageJ"
+[ij] : https://imagej.net/Welcome "Website of ImageJ"
