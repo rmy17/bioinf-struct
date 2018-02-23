@@ -44,7 +44,7 @@ const gpuAdaptiveThreshold = (Threshold) => (raster, graphContext, copy_mode = t
 
     in vec2 v_texCoord;
     uniform float threshold;
-    const vec3 W = vec3(0.299,0.587,0.114);
+    const vec3 W = vec3(0.2126 ,0.7154,0.0721);
     const float maxUint16 = 65535.0;
     uniform ${samplerType} u_image;
     out vec4 outColor;
