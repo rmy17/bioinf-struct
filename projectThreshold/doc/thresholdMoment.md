@@ -34,7 +34,7 @@ At the end of the moment function, we returned an image with the applied treshol
 
 Here we have the comparison of image J moment function and the javascript moment function : 
 
-![enter image description here](https://lh3.googleusercontent.com/7ys8Q3oUa2EHpLxKvvKy1pyNsd2cQY9-GTWFpOnwyfyFxzqsH6_d0NNAI58iO-NBmH8XG7vV67zNnHoIUU9L=w1910-h842)
+![enter image description here](https://image.noelshack.com/fichiers/2018/08/6/1519488969-boats-comparison.png)
 
 Figure 2 : Comparision of Moment threshold obtained in Image J (left) and Javascript (right).
 
