@@ -19,6 +19,7 @@ ImageJ is a free Java-based image processing program developed at the National I
 We will use boats image available on the time project and the ImageJ image samples in order to perform the Moments threshold.
 
 ![enter image description here](https://image.noelshack.com/fichiers/2018/08/6/1519487747-boats.png)
+
 Figure 1 : boats sample image used for the test.
 
 Two implementations will be used, functionnal and non functionnal javascript code. We will compare the time of processing by using benchmark on different sizes of image. We will also compare two Web Browsers : Firefox(version 57.0.4 (64bits)) and Chrome (version 64.0.3282.119 (64bits)). 
@@ -35,14 +36,14 @@ Here we have the comparison of image J moment function and the javascript moment
 
 ![enter image description here](https://lh3.googleusercontent.com/7ys8Q3oUa2EHpLxKvvKy1pyNsd2cQY9-GTWFpOnwyfyFxzqsH6_d0NNAI58iO-NBmH8XG7vV67zNnHoIUU9L=w1910-h842)
 
-   Figure 2 : Comparision of Moment threshold obtained in Image J (left) and Javascript (right).
+Figure 2 : Comparision of Moment threshold obtained in Image J (left) and Javascript (right).
 
 
 Here we have the benchmark results : 
 
 ![enter image description here](https://image.noelshack.com/fichiers/2018/08/6/1519487843-chartgo.png)
 
-  Figure 3 : Benchmark of function Moment with Firefox, Chrome and Image J.
+Figure 3 : Benchmark of function Moment with Firefox, Chrome and Image J.
 
 We can see that the Moment function is faster on the different image sizes, and that this can be explained by the fact that java, which is the language used by imageJ, is precompiled.
 We can also find that the function passed in functional is slightly faster than the non-functional one, one could improve these results by putting the remaining loops in functional.
